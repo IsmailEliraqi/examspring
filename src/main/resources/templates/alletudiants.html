@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+      <div th:if="${etudiants.size()!=0}">
+        <table border="2">
+        <thead>
+           <tr> 
+           <th>Numero Etudiant</th>
+           <th>Nom</th>
+           <th>Prenom</th>
+           <th>Admis</th>
+           </tr>
+        </thead>
+         <tbody>
+           <tr th:each="f:${etudiants}"> 
+           <td th:text="${f.id}"></td>
+           <td th:text="${f.nom}"></td>
+           <td th:text="${f.prenom}"></td>
+           <td th:text="${f.admis}"></td>
+           </tr>
+        </tbody>
+        
+        </table>
+      
+      </div>
+      <div th:unless="${etudiants.size()!=0}">
+      
+       <h1>Aucun Etudiant</h1> 
+      </div>
+
+	<a th:href="@{/index}">index</a>
+</body>
+</html>
